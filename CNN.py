@@ -42,7 +42,7 @@ classifier.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accur
 
 # Load Trained model weights
 # from keras.models import load_model
-    # regressor=load_model('cnn.h5')
+# regressor=load_model('cnn.h5')
 
 train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1.0 / 255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
 
@@ -58,7 +58,7 @@ classifier.save("cnn.h5")
 
 #Part 3 - Making new predictions
 
-test_image = tf.keras.preprocessing.image.load_img("dataset/single_prediction/Y9.jpg", target_size=(64, 64))
+test_image = tf.keras.preprocessing.image.load_img("dataset/Y9.jpg", target_size=(64, 64))
 test_image = tf.keras.preprocessing.image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis=0)
 result = classifier.predict(test_image)
