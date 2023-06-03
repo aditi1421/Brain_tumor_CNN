@@ -4,7 +4,7 @@ import random
 import os
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.models import Sequentials
+from tensorflow.keras.models import Sequential
 from tensorflow.keras import layers, models
 from keras.preprocessing import image
 from keras.layers import Conv2D, MaxPooling2D, GlobalAveragePooling2D, Flatten, Dense, Dropout
@@ -41,8 +41,8 @@ classifier.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accur
 # Part 2 - Fitting the CNN to the images
 
 # Load Trained model weights
-# from keras.models import load_model
-# regressor=load_model('cnn.h5')
+from keras.models import load_model
+regressor=load_model('cnn.h5')
 
 train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(rescale=1.0 / 255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
 
@@ -68,4 +68,5 @@ if result[0][0] == 0:
     prediction = "Normal"
 if result[0][0] == 1:
     prediction = "Abnormality detected"
-
+    
+print(prediction)
